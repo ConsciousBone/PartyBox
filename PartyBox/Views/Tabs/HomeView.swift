@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
+    let appDisplayName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "PartyBox"
+    let appVersionName = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
+    let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "unknown"
+    
     var greeting: String {
         let hour = Calendar.current.component(.hour, from: Date())
         
@@ -26,6 +30,8 @@ struct HomeView: View {
             Section {
                 Text(greeting)
                     .font(.largeTitle)
+            } header: {
+                Text("\(appDisplayName) - version \(appVersionName) build \(buildNumber)")
             }
         }
     }
