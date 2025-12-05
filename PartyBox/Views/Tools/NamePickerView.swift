@@ -10,11 +10,17 @@ import SwiftUI
 struct NamePickerView: View {
     @State private var names: [String] = []
     
+    @State private var isEditing = false
+    
     var body: some View {
         Form {
             Section {
                 ForEach(names.indices, id: \.self) { index in
-                    Text(names[index])
+                    if isEditing {
+                        TextField("", text: $names[index])
+                    } else {
+                        Text(names[index])
+                    }
                 }
                 .onDelete(perform: deleteName) // remove the item
                 Button {
@@ -26,6 +32,21 @@ struct NamePickerView: View {
                 }
             } header: {
                 Text("Names (\(names.count))")
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    withAnimation {
+                        isEditing.toggle()
+                    }
+                } label: {
+                    if isEditing {
+                        Label("Stop editing", systemImage: "pencil.slash")
+                    } else {
+                        Label("Edit", systemImage: "pencil")
+                    }
+                }
             }
         }
     }
