@@ -14,7 +14,7 @@ struct PickerTeam: Identifiable {
 }
 
 struct TeamPickerView: View {
-    @State private var names: [String] = []
+    @State private var teams: [PickerTeam] = []
     var body: some View {
         Text("Team picker view")
     }
