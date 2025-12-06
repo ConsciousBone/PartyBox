@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct Team: Identifiable {
+struct ScoreboardTeam: Identifiable {
     var name: String
     var score: Int
     let id = UUID()
 }
 
 struct ScoreboardView: View {
-    @State private var teams: [Team] = [
-        Team(name: "Team 1", score: 0),
-        Team(name: "Team 2", score: 0)
+    @State private var teams: [ScoreboardTeam] = [
+        ScoreboardTeam(name: "Team 1", score: 0),
+        ScoreboardTeam(name: "Team 2", score: 0)
     ]
     
     @State private var isEditing = false
@@ -30,7 +30,7 @@ struct ScoreboardView: View {
             } actions: {
                 Button {
                     withAnimation {
-                        teams.append(Team(name: "Team \(teams.count + 1)", score: 0))
+                        teams.append(ScoreboardTeam(name: "Team \(teams.count + 1)", score: 0))
                     }
                 } label: {
                     Label("Add team", systemImage: "plus")
@@ -105,7 +105,7 @@ struct ScoreboardView: View {
                     ToolbarItem(placement: .automatic) {
                         Button {
                             withAnimation {
-                                teams.append(Team(name: "Team \(teams.count + 1)", score: 0))
+                                teams.append(ScoreboardTeam(name: "Team \(teams.count + 1)", score: 0))
                             }
                         } label: {
                             Label("Add team", systemImage: "plus")

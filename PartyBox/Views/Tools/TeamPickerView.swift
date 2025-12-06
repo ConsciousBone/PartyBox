@@ -7,7 +7,14 @@
 
 import SwiftUI
 
+struct PickerTeam: Identifiable {
+    var teamName: String
+    var names: [String]
+    let id = UUID()
+}
+
 struct TeamPickerView: View {
+    @State private var names: [String] = []
     var body: some View {
         Text("Team picker view")
     }
