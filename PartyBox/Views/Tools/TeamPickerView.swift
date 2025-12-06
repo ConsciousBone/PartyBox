@@ -7,9 +7,20 @@
 
 import SwiftUI
 
+struct Team {
+    var name: String
+    var score: Int
+}
+
 struct TeamPickerView: View {
+    @State private var teams: [Team] = []
+    
+    @State private var isEditing = false
+    
     var body: some View {
-        Text("Team picker view")
+        VStack {
+            
+        }
     }
 }
 
