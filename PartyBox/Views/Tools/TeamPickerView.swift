@@ -7,38 +7,31 @@
 
 import SwiftUI
 
-struct Team {
+struct Team: Identifiable {
     var name: String
     var score: Int
+    let id = UUID()
 }
 
 struct TeamPickerView: View {
-    @State private var teamCount = 2
-    @State private var teams: [Team] = []
+    @State private var teams: [Team] = [
+        Team(name: "Team 1", score: 0),
+        Team(name: "Team 2", score: 0)
+    ]
     
     @State private var isEditing = false
     
     var body: some View {
         Form {
-            if isEditing {
+            ForEach(teams) { team in
                 Section {
-                    Stepper(value: $teamCount, in: 1...4) {
-                        Label("\(teamCount) teams", systemImage: "person.3")
+                    VStack(alignment: .leading) {
+                        Text(team.name)
+                        Text("\(team.score)")
                     }
-                } header: {
-                    Text("Team count")
                 }
             }
-            
-            ForEach(teams.indices, id: \.self) { index in
-                Section {
-                    Text(teams[index].name)
-                    Text("\(teams[index].score)")
-                }
-            }
-            Button("add") {
-                teams.append(Team(name: "New team", score: 0))
-            }
+            .onDelete(perform: deleteTeam)
         }
         .navigationTitle("Team picker")
         .navigationBarTitleDisplayMode(.inline)
@@ -56,6 +49,22 @@ struct TeamPickerView: View {
                     }
                 }
             }
+            
+            if isEditing {
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        teams.append(Team(name: "Team aaaa", score: 0))
+                    } label: {
+                        Label("Add team", systemImage: "plus")
+                    }
+                }
+            }
+        }
+    }
+    
+    private func deleteTeam(at offsets: IndexSet) {
+        withAnimation {
+            teams.remove(atOffsets: offsets)
         }
     }
 }
