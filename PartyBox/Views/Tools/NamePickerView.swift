@@ -49,6 +49,8 @@ struct NamePickerView: View {
                 .disabled(names.isEmpty)
             }
         }
+        .navigationTitle("Name picker")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
