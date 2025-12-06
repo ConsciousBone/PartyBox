@@ -22,40 +22,94 @@ struct TeamPickerView: View {
     @State private var isEditing = false
     
     var body: some View {
-        Form {
-            ForEach(teams) { team in
-                Section {
-                    VStack(alignment: .leading) {
-                        Text(team.name)
-                        Text("\(team.score)")
-                    }
-                }
-            }
-            .onDelete(perform: deleteTeam)
-        }
-        .navigationTitle("Team picker")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
+        if teams.isEmpty {
+            ContentUnavailableView {
+                Label("No teams", systemImage: "person.3")
+            } description: {
+                Text("You have no teams.")
+            } actions: {
                 Button {
                     withAnimation {
-                        isEditing.toggle()
+                        teams.append(Team(name: "Team \(teams.count + 1)", score: 0))
                     }
                 } label: {
-                    if isEditing {
-                        Label("Stop editing", systemImage: "pencil.slash")
-                    } else {
-                        Label("Edit", systemImage: "pencil")
+                    Label("Add team", systemImage: "plus")
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            .navigationTitle("Team picker")
+            .navigationBarTitleDisplayMode(.inline)
+        } else {
+            Form {
+                ForEach($teams) { $team in
+                    Section {
+                        HStack(alignment: .center, spacing: 10) {
+                            Spacer()
+                            
+                            Button {
+                                team.score -= 1
+                            } label: {
+                                Label("-1", systemImage: "minus")
+                                    .frame(width: 30, height: .infinity)
+                                    .contentShape(Rectangle())
+                            }
+                            .padding()
+                            
+                            VStack(alignment: .center, spacing: 7) {
+                                if isEditing {
+                                    TextField("", text: $team.name)
+                                        .multilineTextAlignment(.center)
+                                    // no clue why the buttons socially distance with this
+                                } else {
+                                    Text(team.name)
+                                }
+                                Text("\(team.score)")
+                                    .font(.title)
+                            }
+                            
+                            Button {
+                                team.score += 1
+                            } label: {
+                                Label("+1", systemImage: "plus")
+                                    .frame(width: 30, height: .infinity)
+                                    .contentShape(Rectangle())
+                            }
+                            .padding()
+                            
+                            Spacer()
+                        }
+                    }
+                    .buttonStyle(.borderless)
+                    .labelStyle(.iconOnly)
+                }
+                .onDelete(perform: deleteTeam)
+            }
+            .navigationTitle("Team picker")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        withAnimation {
+                            isEditing.toggle()
+                        }
+                    } label: {
+                        if isEditing {
+                            Label("Stop editing", systemImage: "pencil.slash")
+                        } else {
+                            Label("Edit", systemImage: "pencil")
+                        }
                     }
                 }
-            }
-            
-            if isEditing {
-                ToolbarItem(placement: .automatic) {
-                    Button {
-                        teams.append(Team(name: "Team aaaa", score: 0))
-                    } label: {
-                        Label("Add team", systemImage: "plus")
+                
+                if isEditing {
+                    ToolbarItem(placement: .automatic) {
+                        Button {
+                            withAnimation {
+                                teams.append(Team(name: "Team \(teams.count + 1)", score: 0))
+                            }
+                        } label: {
+                            Label("Add team", systemImage: "plus")
+                        }
                     }
                 }
             }
