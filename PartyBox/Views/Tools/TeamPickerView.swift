@@ -1,5 +1,5 @@
 //
-//  TeamPickerView.swift
+//  ScoreboardView.swift
 //  PartyBox
 //
 //  Created by Evan Plant on 04/12/2025.
@@ -13,7 +13,7 @@ struct Team: Identifiable {
     let id = UUID()
 }
 
-struct TeamPickerView: View {
+struct ScoreboardView: View {
     @State private var teams: [Team] = [
         Team(name: "Team 1", score: 0),
         Team(name: "Team 2", score: 0)
@@ -125,6 +125,6 @@ struct TeamPickerView: View {
 
 #Preview {
     NavigationStack {
-        TeamPickerView()
+        ScoreboardView()
     }
 }

@@ -21,7 +21,7 @@ struct ToolsView: View {
                 
                 Section {
                     NavigationLink {
-                        TeamPickerView()
+                        //TeamPickerView()
                     } label: {
                         Label("Team picker", systemImage: "person.3")
                     }
@@ -37,7 +37,7 @@ struct ToolsView: View {
                 
                 Section {
                     NavigationLink {
-                        NamePickerView()
+                        ScoreboardView()
                     } label: {
                         Label("Scoreboard", systemImage: "rectangle.split.2x1")
                     }
