@@ -12,6 +12,8 @@ struct NamePickerView: View {
     
     @State private var isEditing = false
     
+    @State private var randomName = ""
+    
     var body: some View {
         Form {
             Section {
@@ -32,6 +34,19 @@ struct NamePickerView: View {
                 }
             } header: {
                 Text("Names (\(names.count))")
+            }
+            
+            Section {
+                Text(randomName.isEmpty ? "No name" : randomName)
+                    .font(.largeTitle)
+                
+                
+                Button {
+                    randomName = names.randomElement() ?? "No name"
+                } label: {
+                    Label("Shuffle", systemImage: "shuffle")
+                }
+                .disabled(names.isEmpty)
             }
         }
         .toolbar {
