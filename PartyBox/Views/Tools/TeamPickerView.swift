@@ -43,31 +43,34 @@ struct TeamPickerView: View {
             Form {
                 ForEach($teams) { $team in
                     Section {
-                        if isEditing {
-                            TextField("", text: $team.teamName)
-                                .font(.title)
-                        } else {
-                            Text(team.teamName)
-                                .font(.title)
-                        }
-
-                        ForEach(team.names.indices, id: \.self) { index in
+                        VStack(alignment: .leading, spacing: 10) {
                             if isEditing {
-                                TextField("", text: $team.names[index])
+                                TextField("", text: $team.teamName)
+                                    .font(.title)
                             } else {
-                                Text(team.names[index])
+                                Text(team.teamName)
+                                    .font(.title)
                             }
-                        }
-                        
-                        if isEditing {
-                            Button {
-                                team.names.append("Name \(team.names.count + 1)")
-                            } label: {
-                                Label("Add name", systemImage: "plus")
+                            
+                            ForEach(team.names.indices, id: \.self) { index in
+                                if isEditing {
+                                    TextField("", text: $team.names[index])
+                                } else {
+                                    Text(team.names[index])
+                                }
+                            }
+                            
+                            if isEditing {
+                                Button {
+                                    team.names.append("Name \(team.names.count + 1)")
+                                } label: {
+                                    Label("Add name", systemImage: "plus")
+                                }
                             }
                         }
                     }
                 }
+                .onDelete(perform: deleteTeam)
             }
             .navigationTitle("Team organiser")
             .navigationBarTitleDisplayMode(.inline)
@@ -101,6 +104,12 @@ struct TeamPickerView: View {
                     }
                 }
             }
+        }
+    }
+    
+    private func deleteTeam(at offsets: IndexSet) {
+        withAnimation {
+            teams.remove(atOffsets: offsets)
         }
     }
 }
