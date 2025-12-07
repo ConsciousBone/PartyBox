@@ -43,11 +43,20 @@ struct TeamPickerView: View {
             Form {
                 ForEach($teams) { $team in
                     Section {
-                        Text(team.teamName)
-                            .font(.title)
+                        if isEditing {
+                            TextField("", text: $team.teamName)
+                                .font(.title)
+                        } else {
+                            Text(team.teamName)
+                                .font(.title)
+                        }
 
-                        ForEach(team.names, id: \.self) { name in
-                            Text(name)
+                        ForEach(team.names.indices, id: \.self) { index in
+                            if isEditing {
+                                TextField("", text: $team.names[index])
+                            } else {
+                                Text(team.names[index])
+                            }
                         }
                         
                         Button {
