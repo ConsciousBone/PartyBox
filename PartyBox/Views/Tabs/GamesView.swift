@@ -9,7 +9,11 @@ import SwiftUI
 
 struct GamesView: View {
     var body: some View {
-        Text("Games view")
+        ContentUnavailableView(
+            "Coming soon",
+            systemImage: "gamecontroller",
+            description: Text("Games are coming soon!")
+        )
     }
 }
 

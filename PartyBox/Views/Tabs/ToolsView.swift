@@ -29,9 +29,9 @@ struct ToolsView: View {
                 
                 Section {
                     NavigationLink {
-                        TimerView()
+                        StopwatchView()
                     } label: {
-                        Label("Timer", systemImage: "timer")
+                        Label("Stopwatch", systemImage: "stopwatch")
                     }
                 }
                 

@@ -1,5 +1,5 @@
 //
-//  TimerView.swift
+//  StopwatchView.swift
 //  PartyBox
 //
 //  Created by Evan Plant on 04/12/2025.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct TimerView: View {
+struct StopwatchView: View {
     var body: some View {
-        Text("Timer view")
+        Text("Stopwatch view")
     }
 }
 
 #Preview {
-    TimerView()
+    StopwatchView()
 }
