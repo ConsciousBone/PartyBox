@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		21FFEF722EE6359000FE8F7D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 21FFEF712EE6358D00FE8F7D /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		21FFEF2F2EE02D4A00FE8F7D /* PartyBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21FFEF712EE6358D00FE8F7D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		21FFEF262EE02D4A00FE8F7D = {
 			isa = PBXGroup;
 			children = (
+				21FFEF712EE6358D00FE8F7D /* README.md */,
 				21FFEF312EE02D4A00FE8F7D /* PartyBox */,
 				21FFEF302EE02D4A00FE8F7D /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21FFEF722EE6359000FE8F7D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
