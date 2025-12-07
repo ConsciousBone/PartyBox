@@ -59,10 +59,12 @@ struct TeamPickerView: View {
                             }
                         }
                         
-                        Button {
-                            team.names.append("Name \(team.names.count + 1)")
-                        } label: {
-                            Label("Add name", systemImage: "plus")
+                        if isEditing {
+                            Button {
+                                team.names.append("Name \(team.names.count + 1)")
+                            } label: {
+                                Label("Add name", systemImage: "plus")
+                            }
                         }
                     }
                 }
