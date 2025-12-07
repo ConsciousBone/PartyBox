@@ -21,7 +21,7 @@ struct ToolsView: View {
                 
                 Section {
                     NavigationLink {
-                        //TeamPickerView()
+                        TeamPickerView()
                     } label: {
                         Label("Team organiser", systemImage: "person.3")
                     }
