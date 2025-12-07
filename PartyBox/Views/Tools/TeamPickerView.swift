@@ -15,6 +15,9 @@ struct PickerTeam: Identifiable {
 
 struct TeamPickerView: View {
     @State private var teams: [PickerTeam] = []
+    
+    @State private var isEditing = false
+    
     var body: some View {
         if teams.isEmpty {
             ContentUnavailableView {
@@ -25,7 +28,7 @@ struct TeamPickerView: View {
                 Button {
                     withAnimation {
                         teams.append(PickerTeam(
-                            teamName: "Team 1",
+                            teamName: "Team \(teams.count + 1)",
                             names: ["Name 1", "Name 2"]
                         ))
                     }
@@ -61,13 +64,29 @@ struct TeamPickerView: View {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         withAnimation {
-                            teams.append(PickerTeam(
-                                teamName: "Team???",
-                                names: ["Name 1", "Name 2"]
-                            ))
+                            isEditing.toggle()
                         }
                     } label: {
-                        Label("Add team", systemImage: "plus")
+                        if isEditing {
+                            Label("Stop editing", systemImage: "pencil.slash")
+                        } else {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                    }
+                }
+                
+                if isEditing {
+                    ToolbarItem(placement: .automatic) {
+                        Button {
+                            withAnimation {
+                                teams.append(PickerTeam(
+                                    teamName: "Team \(teams.count + 1)",
+                                    names: ["Name 1", "Name 2"]
+                                ))
+                            }
+                        } label: {
+                            Label("Add team", systemImage: "plus")
+                        }
                     }
                 }
             }
