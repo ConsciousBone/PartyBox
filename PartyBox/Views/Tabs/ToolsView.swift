@@ -43,6 +43,8 @@ struct ToolsView: View {
                     }
                 }
             }
+            .navigationTitle("Tools")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

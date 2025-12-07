@@ -25,12 +25,15 @@ struct NamePickerView: View {
                     }
                 }
                 .onDelete(perform: deleteName) // remove the item
-                Button {
-                    withAnimation {
-                        names.append("New name")
+                
+                if isEditing {
+                    Button {
+                        withAnimation {
+                            names.append("New name")
+                        }
+                    } label: {
+                        Label("Add name", systemImage: "plus")
                     }
-                } label: {
-                    Label("Add name", systemImage: "plus")
                 }
             } header: {
                 Text("Names (\(names.count))")
