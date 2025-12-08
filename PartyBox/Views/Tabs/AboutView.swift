@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct AboutView: View {
+    let appDisplayName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "PartyBox"
+    let appVersionName = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
+    let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "unknown"
+    
     var body: some View {
-        Text("About view")
+        Form {
+            Section {
+                Text(appDisplayName)
+                    .font(.largeTitle)
+                Text("Version \(appVersionName) build \(buildNumber)")
+            }
+        }
     }
 }
 
