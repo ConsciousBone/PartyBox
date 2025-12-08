@@ -16,7 +16,8 @@ struct WordGuessingView: View {
         "Robot", "Mermaid", "Detective",
         "Wizard", "Firefighter", "Vampire",
         "Princess", "Ninja", "Alien",
-        "Magician", "Chef", "Dragon"
+        "Magician", "Chef", "Dragon",
+        "House", "Pan", "Orange"
     ]
     
     var body: some View {

@@ -19,13 +19,15 @@ struct CharadesView: View {
         "Spaceship", "Elephant", "Guitar",
         "Zombie", "Lighthouse", "Pirate",
         "Sleeping", "Running", "Music",
-        "Math", "Ocean", "Mime"
+        "Math", "Ocean", "Mime",
+        "Piano", "Small", "Drums"
     ]
     let phrases = [
         "Walking a dog", "Climbing a ladder", "Washing a car",
         "Flying a kite", "Riding a bike", "Watering the plants",
         "Washing the dishes", "Brushing your teeth", "Driving a car",
-        "Writing an essay", "Cooking a meal", "Building a campfire"
+        "Writing an essay", "Cooking a meal", "Building a campfire",
+        "Counting sheep", "Washing a car", "Painting a picture"
     ]
     
     var body: some View {
