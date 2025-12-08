@@ -25,16 +25,26 @@ struct WordGuessingView: View {
             Section {
                 Text(selectedWord)
                     .font(.largeTitle.bold())
+            }
+            .onAppear(perform: shuffleWord)
+            
+            Section {
+                Button {
+                    withAnimation {
+                        shuffleWord()
+                    }
+                } label: {
+                    Label("Correct", systemImage: "checkmark")
+                }
                 
                 Button {
                     withAnimation {
                         shuffleWord()
                     }
                 } label: {
-                    Label("Shuffle", systemImage: "shuffle")
+                    Label("Skip", systemImage: "chevron.forward")
                 }
             }
-            .onAppear(perform: shuffleWord)
         }
         .navigationTitle("Word guessing")
         .navigationBarTitleDisplayMode(.inline)
