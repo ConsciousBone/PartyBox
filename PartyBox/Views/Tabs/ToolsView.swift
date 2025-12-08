@@ -42,6 +42,14 @@ struct ToolsView: View {
                         Label("Scoreboard", systemImage: "rectangle.split.2x1")
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        CoinFlipView()
+                    } label: {
+                        Label("Coin flip", systemImage: "dollarsign")
+                    }
+                }
             }
             .navigationTitle("Tools")
             .navigationBarTitleDisplayMode(.inline)
