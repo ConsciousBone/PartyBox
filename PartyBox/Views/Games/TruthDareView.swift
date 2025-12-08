@@ -48,6 +48,7 @@ struct TruthDareView: View {
                     } label: {
                         Label("Truth", systemImage: "bubble")
                     }
+                    .buttonStyle(.borderless)
                     .frame(width: .infinity)
                     
                     Spacer()
@@ -59,6 +60,7 @@ struct TruthDareView: View {
                     } label: {
                         Label("Dare", systemImage: "bolt")
                     }
+                    .buttonStyle(.borderless)
                     .frame(width: .infinity)
                     
                     Spacer()
