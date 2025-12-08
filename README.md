@@ -10,13 +10,13 @@ todo: these
 todo: this
 
 # How to get PartyBox
-As per usual, this is the way I recommend, but there are other options available such as AltStore or SideStore!  
+As per usual, this is the way I recommend, but there are other options available such as AltStore or SideStore; any way of sideloading apps onto iOS should work.
 1. Install [Sideloadly](https://sideloadly.io/) and its dependencies; the ones you'll need depend on what OS you use, the website lists them!
 2. From the [Releases](https://example.com) (todo: actual url) tab, find the latest release; it should be at the top. Download the attached `PartyBox.ipa` file.
 3. Using a cable that supports both charge *and* data transfer, connect your device to your computer, tap `Trust` if prompted to, then open Sideloadly.
 4. In Sideloadly, click the file icon with the `IPA` text and select the previously downloaded `PartyBox.ipa` file.
 5. Select your device in the `iDevice` dropdown, and make sure the name matches the device you wish to sideload PartyBox to.
-6. In the `Apple ID` text field, enter your Apple Account/ID's email.
+6. In the `Apple ID` text field, enter your Apple Account/ID's email. If this account is a free developer account, you will have to resign PartyBox every 7 days; with a paid developer account this becomes 365 days.
 7. Click the `Start` button, and enter your Apple Account/ID's password when prompted. **This will be sent straight to Apple, and no one else apart from you can read it.**
 8. Wait for the app to install, and then launch it!
 
