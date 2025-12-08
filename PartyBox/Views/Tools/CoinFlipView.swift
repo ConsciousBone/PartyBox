@@ -13,7 +13,27 @@ struct CoinFlipView: View {
     let sides = ["Heads", "Tails"]
     
     var body: some View {
-        Text("Coin flip")
+        Form {
+            Section {
+                Text(selectedSide)
+                    .font(.largeTitle.bold())
+            }
+            .onAppear(perform: flipCoin)
+            
+            Section {
+                Button {
+                    flipCoin()
+                } label: {
+                    Label("Flip coin", systemImage: "arrow.trianglehead.clockwise.rotate.90")
+                }
+            }
+        }
+        .navigationTitle("Coin flip")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func flipCoin() {
+        selectedSide = sides.randomElement() ?? "no sides??"
     }
 }
 
