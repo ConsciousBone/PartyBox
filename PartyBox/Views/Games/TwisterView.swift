@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct TwisterView: View {
+    @State private var selectedColour = ""
+    @State private var selectedMove = ""
+    
     let colours = [
         "Red", "Green", "Yellow", "Blue"
     ]
-    let move = [
+    let moves = [
         "Left foot", "Right foot",
         "Left hand", "Right hand"
     ]
@@ -19,14 +22,14 @@ struct TwisterView: View {
     var body: some View {
         Form {
             Section {
-                Text("move")
+                Text(selectedMove)
                     .font(.largeTitle.bold())
             } header: {
                 Text("Move")
             }
             
             Section {
-                Text("colour")
+                Text(selectedColour)
                     .font(.largeTitle.bold())
             } header: {
                 Text("Colour")
@@ -34,12 +37,22 @@ struct TwisterView: View {
             
             Section {
                 Button {
-                    print("aa")
+                    withAnimation {
+                        spinWheel()
+                    }
                 } label: {
                     Label("Spin", systemImage: "arrow.triangle.2.circlepath")
                 }
             }
+            .onAppear(perform: spinWheel)
         }
+        .navigationTitle("Twister")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func spinWheel() {
+        selectedMove = moves.randomElement() ?? "no moves???"
+        selectedColour = colours.randomElement() ?? "no colours???"
     }
 }
 
