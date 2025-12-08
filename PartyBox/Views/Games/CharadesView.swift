@@ -54,6 +54,18 @@ struct CharadesView: View {
                 Text("Prompt")
             }
             .onAppear(perform: getRandomPrompt)
+            
+            Section {
+                Toggle(isOn: $isUsingWords) {
+                    Label("Words", systemImage: "characters.lowercase")
+                }
+                
+                Toggle(isOn: $isUsingPhrases) {
+                    Label("Phrases", systemImage: "text.justify.leading")
+                }
+            } header: {
+                Text("Include")
+            }
         }
     }
     
