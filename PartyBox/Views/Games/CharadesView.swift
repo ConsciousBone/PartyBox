@@ -13,6 +13,8 @@ struct CharadesView: View {
     
     @State private var selectedPrompt = ""
     
+    @State private var isPromptHidden = false
+    
     let words = [
         "Spaceship", "Elephant", "Guitar",
         "Zombie", "Lighthouse", "Pirate"
@@ -27,11 +29,26 @@ struct CharadesView: View {
             Section {
                 Text(selectedPrompt)
                     .font(.largeTitle.bold())
+                    .redacted(reason: isPromptHidden ? .placeholder : [])
                 
                 Button {
-                    getRandomPrompt()
+                    withAnimation {
+                        getRandomPrompt()
+                    }
                 } label: {
                     Label("Shuffle", systemImage: "shuffle")
+                }
+                
+                Button {
+                    withAnimation {
+                        isPromptHidden.toggle()
+                    }
+                } label: {
+                    if isPromptHidden {
+                        Label("Unhide", systemImage: "eye.slash")
+                    } else {
+                        Label("Hide", systemImage: "eye")
+                    }
                 }
             } header: {
                 Text("Prompt")
