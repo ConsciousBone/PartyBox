@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TruthDareView: View {
-    @State private var selectedQuestion = ""
+    @State private var selectedQuestion = "Select Truth or Dare."
     
     let truths = [
         "What’s the strangest thing you believed as a child?",
@@ -27,16 +27,49 @@ struct TruthDareView: View {
         "Do the worst dance move you can think of.",
         "Try to lick your elbow.",
         "Attempt a tongue twister chosen by the group.",
-        "Let someone else send a text message from your phone",
+        "Let someone else send a text message from your phone.",
         "Eat a spoonful of something chosen by the group.",
-        "Pretend you’re a news presenter and report on something ridiculous",
+        "Pretend you’re a news presenter and report on something ridiculous.",
         "Do five animal impressions in a row.",
-        "Act out a movie scene without speaking",
+        "Act out a movie scene without speaking.",
         "Hold a plank for 20 seconds."
     ]
     
     var body: some View {
-        Text("Truth dare")
+        Form {
+            Section {
+                HStack(alignment: .center) {
+                    Spacer()
+                    
+                    Button {
+                        selectedQuestion = truths.randomElement() ?? "no truths??"
+                    } label: {
+                        Label("Truth", systemImage: "bubble")
+                    }
+                    .frame(width: .infinity)
+                    
+                    Spacer()
+                    Divider()
+                    Spacer()
+                    
+                    Button {
+                        selectedQuestion = dares.randomElement() ?? "no dares??"
+                    } label: {
+                        Label("Dare", systemImage: "bolt")
+                    }
+                    .frame(width: .infinity)
+                    
+                    Spacer()
+                }
+            }
+            
+            Section {
+                Text(selectedQuestion)
+                    .font(.largeTitle.bold())
+            }
+        }
+        .navigationTitle("Truth or dare")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
