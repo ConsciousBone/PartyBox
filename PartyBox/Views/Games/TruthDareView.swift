@@ -20,7 +20,8 @@ struct TruthDareView: View {
         "What habit of yours annoys people the most?",
         "What’s something you’ve done that you’ll never do again?",
         "What’s your biggest irrational fear?",
-        "What’s the most ridiculous lie you’ve told someone?"
+        "What’s the most ridiculous lie you’ve told someone?",
+        "Who in this room would be most likely to go to jail?"
     ]
     let dares = [
         "Speak in an accent of the group’s choice for the next 30 seconds.",
@@ -32,7 +33,8 @@ struct TruthDareView: View {
         "Pretend you’re a news presenter and report on something ridiculous.",
         "Do five animal impressions in a row.",
         "Act out a movie scene without speaking.",
-        "Hold a plank for 20 seconds."
+        "Hold a plank for 20 seconds.",
+        "Show the group the most recent photo on your phone."
     ]
     
     var body: some View {
