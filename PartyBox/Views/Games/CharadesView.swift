@@ -17,11 +17,15 @@ struct CharadesView: View {
     
     let words = [
         "Spaceship", "Elephant", "Guitar",
-        "Zombie", "Lighthouse", "Pirate"
+        "Zombie", "Lighthouse", "Pirate",
+        "Sleeping", "Running", "Music",
+        "Math", "Ocean", "Mime"
     ]
     let phrases = [
         "Walking a dog", "Climbing a ladder", "Washing a car",
-        "Flying a kite", "Riding a bike", "Watering the plants"
+        "Flying a kite", "Riding a bike", "Watering the plants",
+        "Washing the dishes", "Brushing your teeth", "Driving a car",
+        "Writing an essay", "Cooking a meal", "Building a campfire"
     ]
     
     var body: some View {
@@ -67,6 +71,8 @@ struct CharadesView: View {
                 Text("Include")
             }
         }
+        .navigationTitle("Charades")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func getRandomPrompt() {
