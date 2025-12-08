@@ -58,6 +58,14 @@ struct ToolsView: View {
                         Label("Dice", systemImage: "dice")
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        RandomNumberView()
+                    } label: {
+                        Label("Random number", systemImage: "numbers")
+                    }
+                }
             }
             .navigationTitle("Tools")
             .navigationBarTitleDisplayMode(.inline)
