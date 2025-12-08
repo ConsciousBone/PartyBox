@@ -26,6 +26,14 @@ struct GamesView: View {
                         Label("Twister", systemImage: "arrow.triangle.2.circlepath")
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        WordGuessingView()
+                    } label: {
+                        Label("Word guessing", systemImage: "characters.lowercase")
+                    }
+                }
             }
             .navigationTitle("Games")
             .navigationBarTitleDisplayMode(.inline)
