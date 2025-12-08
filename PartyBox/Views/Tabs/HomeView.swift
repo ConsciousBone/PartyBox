@@ -26,12 +26,36 @@ struct HomeView: View {
     }
     
     var body: some View {
-        Form {
-            Section {
-                Text(greeting)
-                    .font(.largeTitle)
-            } header: {
-                Text("\(appDisplayName) - version \(appVersionName) build \(buildNumber)")
+        NavigationStack {
+            Form {
+                Section {
+                    Text(greeting)
+                        .font(.largeTitle)
+                } header: {
+                    Text("\(appDisplayName) - version \(appVersionName) build \(buildNumber)")
+                }
+                
+                Section {
+                    NavigationLink {
+                        ScoreboardView()
+                    } label: {
+                        Label("Keep track of scores!", systemImage: "rectangle.split.2x1")
+                    }
+                    
+                    NavigationLink {
+                        CharadesView()
+                    } label: {
+                        Label("Have a game of Charades!", systemImage: "theatermasks")
+                    }
+                    
+                    NavigationLink {
+                        DiceView()
+                    } label: {
+                        Label("Roll some dice!", systemImage: "dice")
+                    }
+                } header: {
+                    Text("Things to do")
+                }
             }
         }
     }

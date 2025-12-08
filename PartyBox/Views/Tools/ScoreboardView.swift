@@ -37,7 +37,7 @@ struct ScoreboardView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
-            .navigationTitle("Team picker")
+            .navigationTitle("Scoreboard")
             .navigationBarTitleDisplayMode(.inline)
         } else {
             Form {
@@ -84,7 +84,7 @@ struct ScoreboardView: View {
                 }
                 .onDelete(perform: deleteTeam)
             }
-            .navigationTitle("Team picker")
+            .navigationTitle("Scoreboard")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
