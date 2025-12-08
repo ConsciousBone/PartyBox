@@ -26,6 +26,10 @@ struct NamePickerView: View {
                 }
                 .onDelete(perform: deleteName) // remove the item
                 
+                if names.isEmpty {
+                    Text("No names, add some in edit mode!")
+                }
+                
                 if isEditing {
                     Button {
                         withAnimation {

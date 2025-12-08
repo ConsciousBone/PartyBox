@@ -46,10 +46,10 @@ struct TeamPickerView: View {
                         VStack(alignment: .leading, spacing: 10) {
                             if isEditing {
                                 TextField("", text: $team.teamName)
-                                    .font(.title)
+                                    .font(.title.bold())
                             } else {
                                 Text(team.teamName)
-                                    .font(.title)
+                                    .font(.title.bold())
                             }
                             
                             ForEach(team.names.indices, id: \.self) { index in
