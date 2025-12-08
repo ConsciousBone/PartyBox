@@ -50,6 +50,14 @@ struct ToolsView: View {
                         Label("Coin flip", systemImage: "dollarsign")
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        DiceView()
+                    } label: {
+                        Label("Dice", systemImage: "dice")
+                    }
+                }
             }
             .navigationTitle("Tools")
             .navigationBarTitleDisplayMode(.inline)
