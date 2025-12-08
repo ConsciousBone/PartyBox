@@ -42,6 +42,14 @@ struct GamesView: View {
                         Label("Truth or dare", systemImage: "questionmark")
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        WouldYouRatherView()
+                    } label: {
+                        Label("Would you rather", systemImage: "arrow.left.and.right")
+                    }
+                }
             }
             .navigationTitle("Games")
             .navigationBarTitleDisplayMode(.inline)
