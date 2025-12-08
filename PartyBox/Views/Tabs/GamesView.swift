@@ -34,6 +34,14 @@ struct GamesView: View {
                         Label("Word guessing", systemImage: "characters.lowercase")
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        TruthDareView()
+                    } label: {
+                        Label("Truth or dare", systemImage: "questionmark")
+                    }
+                }
             }
             .navigationTitle("Games")
             .navigationBarTitleDisplayMode(.inline)
