@@ -9,11 +9,19 @@ import SwiftUI
 
 struct GamesView: View {
     var body: some View {
-        ContentUnavailableView(
-            "Coming soon",
-            systemImage: "gamecontroller",
-            description: Text("Games are coming soon!")
-        )
+        NavigationStack {
+            Form {
+                Section {
+                    NavigationLink {
+                        CharadesView()
+                    } label: {
+                        Label("Charades", systemImage: "theatermasks")
+                    }
+                }
+            }
+            .navigationTitle("Games")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
