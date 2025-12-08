@@ -16,38 +16,75 @@ struct StopwatchView: View {
     @State private var lastUpdate: Date?
     
     var body: some View {
-        switch isAnimationPaused {
-        case true:
-            Text(Date.now, format: .stopwatch(startingAt: startDate ?? .now))
-                .font(.largeTitle)
-        case false:
-            Text(TimeDataSource<Date>.currentDate, format: .stopwatch(startingAt: startDate ?? .now))
-                .font(.largeTitle)
-        }
-        
-        HStack {
-            Button("Start") {
-                startDate = .now
-                isAnimationPaused = false
-            }
-            .buttonStyle(.bordered)
-            .tint(.green)
-            .disabled(isAnimationPaused == false)
+        VStack {
+            Spacer()
             
-            Button("Stop") {
-                isAnimationPaused = true
+            switch isAnimationPaused {
+            case true:
+                Text(Date.now, format: .stopwatch(startingAt: startDate ?? .now))
+                    .font(.system(size: 50).monospaced().bold())
+            case false:
+                Text(TimeDataSource<Date>.currentDate, format: .stopwatch(startingAt: startDate ?? .now))
+                    .font(.system(size: 50).monospaced().bold())
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.red)
-            .disabled(isAnimationPaused)
             
-            Button("Reset") {
-                isAnimationPaused = true
-                startDate = .now
+            Spacer()
+            
+            HStack {
+                Spacer()
+                
+                Button {
+                    startDate = .now
+                    isAnimationPaused = false
+                } label: {
+                    Circle()
+                        .foregroundStyle(!isAnimationPaused ? Color.gray : Color.green)
+                        .frame(width: 90, height: 90)
+                        .overlay {
+                            Text("Start")
+                                .foregroundStyle(.background)
+                        }
+                }
+                .tint(.green)
+                .disabled(isAnimationPaused == false)
+                
+                Spacer()
+                
+                Button {
+                    isAnimationPaused = true
+                } label: {
+                    Circle()
+                        .foregroundStyle(isAnimationPaused ? Color.gray : Color.red)
+                        .frame(width: 90, height: 90)
+                        .overlay {
+                            Text("Stop")
+                                .foregroundStyle(.background)
+                        }
+                }
+                .tint(.red)
+                .disabled(isAnimationPaused)
+                
+                Spacer()
+                
+                Button {
+                    isAnimationPaused = true
+                    startDate = .now
+                } label: {
+                    Circle()
+                        .foregroundStyle(!isAnimationPaused ? Color.gray : Color.blue)
+                        .frame(width: 90, height: 90)
+                        .overlay {
+                            Text("Reset")
+                                .foregroundStyle(.background)
+                        }
+                }
+                .tint(.blue)
+                .disabled(isAnimationPaused == false)
+                
+                Spacer()
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.blue)
-            .disabled(isAnimationPaused == false)
+            
+            Spacer()
         }
     }
 }
