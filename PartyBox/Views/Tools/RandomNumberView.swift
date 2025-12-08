@@ -30,7 +30,29 @@ struct RandomNumberView: View {
                     Label("Maximum value: \(maximumValue)", systemImage: "plus")
                 }
             }
+            
+            Section {
+                Button {
+                    withAnimation {
+                        randomiseNumber()
+                    }
+                } label: {
+                    Label("Randomise", systemImage: "shuffle")
+                }
+            }
+            
+            Section {
+                Text("\(randomNumber)")
+                    .font(.largeTitle.bold().monospaced())
+            }
+            .onAppear(perform: randomiseNumber)
         }
+        .navigationTitle("Random number")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func randomiseNumber() {
+        randomNumber = Int.random(in: minimumValue...maximumValue)
     }
 }
 
