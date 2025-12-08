@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    let appDisplayName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "PartyBox"
+    
     @AppStorage("selectedAccentIndex") private var selectedAccentIndex = 5
     let accentColours = [
         Color.red.gradient, Color.orange.gradient,
@@ -34,6 +36,14 @@ struct SettingsView: View {
                         }
                     } label: {
                         Label("Accent colour", systemImage: "paintpalette")
+                    }
+                }
+                
+                Section {
+                    NavigationLink {
+                        AboutView()
+                    } label: {
+                        Label("About \(appDisplayName)", systemImage: "info.circle")
                     }
                 }
             }
