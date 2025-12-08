@@ -25,16 +25,20 @@ struct SettingsView: View {
     ]
     
     var body: some View {
-        Form {
-            Section {
-                Picker(selection: $selectedAccentIndex) {
-                    ForEach(accentColorNames.indices, id: \.self) { index in
-                        Text(accentColorNames[index])
+        NavigationStack {
+            Form {
+                Section {
+                    Picker(selection: $selectedAccentIndex) {
+                        ForEach(accentColorNames.indices, id: \.self) { index in
+                            Text(accentColorNames[index])
+                        }
+                    } label: {
+                        Label("Accent colour", systemImage: "paintpalette")
                     }
-                } label: {
-                    Label("Accent colour", systemImage: "paintpalette")
                 }
             }
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

@@ -57,6 +57,8 @@ struct HomeView: View {
                     Text("Things to do")
                 }
             }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
