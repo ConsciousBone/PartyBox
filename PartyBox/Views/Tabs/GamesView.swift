@@ -18,6 +18,14 @@ struct GamesView: View {
                         Label("Charades", systemImage: "theatermasks")
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        TwisterView()
+                    } label: {
+                        Label("Twister", systemImage: "arrow.triangle.2.circlepath")
+                    }
+                }
             }
             .navigationTitle("Games")
             .navigationBarTitleDisplayMode(.inline)
