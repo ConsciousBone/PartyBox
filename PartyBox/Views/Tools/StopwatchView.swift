@@ -38,7 +38,7 @@ struct StopwatchView: View {
                     isAnimationPaused = false
                 } label: {
                     Circle()
-                        .foregroundStyle(!isAnimationPaused ? Color.gray : Color.green)
+                        .foregroundStyle(!isAnimationPaused ? Color.gray.gradient : Color.green.gradient)
                         .frame(width: 90, height: 90)
                         .overlay {
                             Text("Start")
@@ -54,7 +54,7 @@ struct StopwatchView: View {
                     isAnimationPaused = true
                 } label: {
                     Circle()
-                        .foregroundStyle(isAnimationPaused ? Color.gray : Color.red)
+                        .foregroundStyle(isAnimationPaused ? Color.gray.gradient : Color.red.gradient)
                         .frame(width: 90, height: 90)
                         .overlay {
                             Text("Stop")
@@ -71,7 +71,7 @@ struct StopwatchView: View {
                     startDate = .now
                 } label: {
                     Circle()
-                        .foregroundStyle(!isAnimationPaused ? Color.gray : Color.blue)
+                        .foregroundStyle(!isAnimationPaused ? Color.gray.gradient : Color.blue.gradient)
                         .frame(width: 90, height: 90)
                         .overlay {
                             Text("Reset")
