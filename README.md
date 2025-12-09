@@ -15,7 +15,7 @@ It supports iPhone and iPad, as well as Mac and Apple Vision Pro using *Designed
 # How to get PartyBox
 As per usual, this is the way I recommend, but there are other options available such as AltStore or SideStore; any way of sideloading apps onto iOS should work.
 1. Install [Sideloadly](https://sideloadly.io/) and its dependencies; the ones you'll need depend on what OS you use, the website lists them!
-2. From the [Releases](https://github.com/ConsciousBone/PartyBox) (todo: actual url) tab, find the latest release; it should be at the top. Download the attached `PartyBox.ipa` file.
+2. From the [Releases](https://github.com/ConsciousBone/PartyBox/releases/tag/stable) tab, find the latest release; it should be at the top. Download the attached `PartyBox.ipa` file.
 3. Using a cable that supports both charge *and* data transfer, connect your device to your computer, tap `Trust` and enter your password if prompted to, then open Sideloadly.
 4. In Sideloadly, click the file icon with the `IPA` text and select the previously downloaded `PartyBox.ipa` file.
 5. Select your device in the `iDevice` dropdown, and make sure the name matches the device you wish to sideload PartyBox to.
